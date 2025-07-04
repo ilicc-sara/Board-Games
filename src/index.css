@@ -1,0 +1,107 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --text-color: rgb(25, 25, 25);
+  --yellow-color: gold;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  position: relative;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.save-as-pdf-btn {
+  position: absolute;
+  top: 50%;
+  right: 7%;
+  transform: translateY(-50%);
+  background-color: var(--text-color);
+  color: white;
+  font-weight: 600px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.game-items-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  justify-content: center;
+  width: 90%;
+  row-gap: 30px;
+}
+
+.game-item {
+  border: 0.5px solid gray;
+  border-radius: 10px;
+  width: 500px;
+  text-align: left;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title-rating-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+  color: var(--yellow-color);
+}
+
+.rating-stars ion-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.game-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 26%;
+  row-gap: 10%;
+  margin-bottom: 5%;
+}
+
+.game-detail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 165px;
+}
+
+ion-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.social-game-icon {
+  width: 25px;
+  height: 30px;
+  color: var(--text-color);
+}
+
+.learn-more {
+  color: var(--text-color);
+  border: 3px solid var(--yellow-color);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  width: fit-content;
+}
