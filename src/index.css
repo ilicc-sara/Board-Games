@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(227, 227, 255);
+}
+
 nav {
   position: relative;
 }
@@ -26,10 +30,15 @@ h1 {
   transform: translateY(-50%);
   background-color: var(--text-color);
   color: white;
-  font-weight: 600px;
+  font-weight: 800px;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+}
+
+.save-as-pdf-btn:hover {
+  box-shadow: inset 0 0 0 1px #fff;
 }
 
 .game-items-container {
@@ -43,7 +52,7 @@ h1 {
 }
 
 .game-item {
-  border: 0.5px solid gray;
+  border: none;
   border-radius: 10px;
   width: 500px;
   text-align: left;
@@ -51,6 +60,12 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: rgb(246, 246, 255);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+}
+
+.game-item:hover {
+  /*  */
 }
 
 .title-rating-cont {
@@ -104,4 +119,10 @@ ion-icon {
   padding: 10px 20px;
   text-decoration: none;
   width: fit-content;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+
+.learn-more:hover {
+  transform: scale(1.05);
 }

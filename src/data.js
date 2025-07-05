@@ -20,7 +20,7 @@ export const info = [
     gameType: "Party, Creative",
     timeSpan: "30 minutes",
     link: "https://youtu.be/YmPsn05nmh8?si=o8_9a_lXg3OEeSfc",
-    rating: 5,
+    rating: 0,
     id: crypto.randomUUID(),
   },
   {
