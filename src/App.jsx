@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { info } from "./data";
 import GameDetails from "./GameDetails";
+import DisplayRatingStars from "./DisplayRatingStars";
 
 function App() {
   const [information, setInformation] = useState(info);
@@ -42,23 +43,12 @@ function App() {
           <article className="game-item">
             <div className="title-rating-cont">
               <h3> {game.name} </h3>
-              <div className="rating-stars">
-                {displayRating(game.rating).map((rateStar, index) =>
-                  rateStar ? (
-                    <ion-icon
-                      key={index}
-                      name="star"
-                      onClick={() => rate(game.id, index)}
-                    ></ion-icon>
-                  ) : (
-                    <ion-icon
-                      key={index}
-                      name="star-outline"
-                      onClick={() => rate(game.id, index)}
-                    ></ion-icon>
-                  )
-                )}
-              </div>
+              <DisplayRatingStars
+                displayRating={displayRating}
+                rating={game.rating}
+                id={game.id}
+                handleClick={rate}
+              />
             </div>
             <p> {game.description} </p>
 
