@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { info } from "./data";
+import GameDetails from "./GameDetails";
 
 function App() {
   const [information, setInformation] = useState(info);
@@ -61,22 +62,12 @@ function App() {
             </div>
             <p> {game.description} </p>
 
-            <div className="game-details">
-              <p className="game-detail">
-                <ion-icon name="people-outline"></ion-icon> {game.players}
-              </p>
-              <p className="game-detail">
-                <img className="social-game-icon" src={"./social-game.png"} />{" "}
-                {game.gameType}
-              </p>
-              <p className="game-detail">
-                <ion-icon name="time-outline"></ion-icon> {game.timeSpan}
-              </p>
-              <p className="game-detail">
-                <ion-icon name="stats-chart-outline"></ion-icon>
-                {game.level}
-              </p>
-            </div>
+            <GameDetails
+              players={game.players}
+              gameType={game.gameType}
+              timeSpan={game.timeSpan}
+              level={game.level}
+            />
 
             <a className="learn-more" href={`${game.link}`} target="_blank">
               Learn More
