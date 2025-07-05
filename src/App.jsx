@@ -3,9 +3,14 @@ import "./App.css";
 import { info } from "./data";
 import GameDetails from "./GameDetails";
 import DisplayRatingStars from "./DisplayRatingStars";
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 function App() {
   const [information, setInformation] = useState(info);
+
+  const contentRef = useRef(null);
+  const reactToPrintFn = useReactToPrint({ contentRef });
 
   function displayRating(ratingNumber) {
     const maxRateNumber = 5;
@@ -30,10 +35,10 @@ function App() {
   }
 
   return (
-    <div>
+    <div ref={contentRef}>
       <nav>
         <h1>Board Games</h1>
-        <button onClick={() => print()} className="save-as-pdf-btn">
+        <button onClick={() => reactToPrintFn()} className="save-as-pdf-btn">
           Save as PDF
         </button>
       </nav>
