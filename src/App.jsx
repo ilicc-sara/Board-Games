@@ -31,7 +31,9 @@ function App() {
     <div>
       <nav>
         <h1>Board Games</h1>
-        <button className="save-as-pdf-btn">Save as PDF</button>
+        <button onClick={() => print()} className="save-as-pdf-btn">
+          Save as PDF
+        </button>
       </nav>
 
       <main className="game-items-container">
