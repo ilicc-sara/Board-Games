@@ -12,24 +12,29 @@ function App() {
   const [showForm, setShowForm] = useState(false);
 
   const [inputs, setInputs] = useState({
-    inputName: "",
-    inputDescription: "",
-    inputPlayers: "",
-    inputLevel: "",
-    inputGameType: "",
-    inputTimeSpan: "",
-    inputLink: "",
-    inputRating: "",
+    name: "",
+    description: "",
+    players: "",
+    complexity: "",
+    genre: "",
+    playTime: "",
+    link: "",
+    rating: "",
     id: crypto.randomUUID(),
   });
+  console.log(inputs);
+  console.log(information);
 
   const contentRef = useRef(null);
   const reactToPrintFn = useReactToPrint({ contentRef });
 
   function displayRating(ratingNumber) {
     const maxRateNumber = 5;
-    const rateNumber = Array(ratingNumber).fill(true);
-    const rateDifference = Array(maxRateNumber - ratingNumber).fill(false);
+
+    const number = Number(ratingNumber);
+
+    const rateNumber = Array(number).fill(true);
+    const rateDifference = Array(maxRateNumber - number).fill(false);
 
     const sum = [...rateNumber, ...rateDifference];
 
@@ -54,76 +59,108 @@ function App() {
     });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    setInformation((prev) => [...prev, inputs]);
+
+    setShowForm(false);
+  }
+
   return (
     <div ref={contentRef}>
       {showForm && (
         <div className="overlay" onClick={() => setShowForm(false)}>
           <h1 style={{ color: "white" }}>Add new Game</h1>
-          <form onClick={(e) => e.stopPropagation()}>
+          <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
             <label>Set Game Name:</label>
             <input
               type="text"
-              name="inputName"
-              value={inputs.inputName}
+              name="name"
+              value={inputs.name}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="Carcassonne"
             />
             <br />
             <label>Description:</label>
-            <input
+            <textarea
               type="text"
-              name="inputDescription"
-              value={inputs.inputDescription}
+              name="description"
+              value={inputs.description}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="Players take turns drawing and placing tiles to build a medieval landscape filled with cities, roads, monasteries, and fields."
             />
             <br />
             <label>Players:</label>
             <input
               type="text"
-              name="inputPlayers"
-              value={inputs.inputPlayers}
+              name="players"
+              value={inputs.players}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="2–5"
             />
             <br />
-            <label>Level:</label>
+            <label>Complexity:</label>
             <input
               type="text"
-              name="inputLevel"
-              value={inputs.inputLevel}
+              name="complexity"
+              value={inputs.complexity}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="easy"
             />
             <br />
-            <label>Game Type:</label>
+            <label>Genre:</label>
             <input
               type="text"
-              name="inputGameType"
-              value={inputs.inputGameType}
+              name="genre"
+              value={inputs.genre}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="Tile-laying, Strategy"
             />
             <br />
-            <label>Time Span:</label>
+            <label>Play Time:</label>
             <input
               type="text"
-              name="inputTimeSpan"
-              value={inputs.inputTimeSpan}
+              name="playTime"
+              value={inputs.playTime}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="35–45 minutes"
             />
             <br />
             <label>Info Link:</label>
             <input
               type="text"
-              name="inputLink"
-              value={inputs.inputLink}
+              name="link"
+              value={inputs.link}
               onChange={(e) => handleInputChange(e)}
+              // required
+              placeholder="https://(info link to learn more...)"
             />
             <br />
             <label>Rating:</label>
-            <input
+            <select
               type="text"
-              name="inputRating"
-              value={inputs.inputRating}
+              name="rating"
+              value={inputs.rating}
               onChange={(e) => handleInputChange(e)}
-            />
+              // required
+              placeholder="How would you rate this game?"
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
             <br />
+
+            <button> Add Game </button>
           </form>
         </div>
       )}
@@ -154,9 +191,9 @@ function App() {
 
             <GameDetails
               players={game.players}
-              gameType={game.gameType}
-              timeSpan={game.timeSpan}
-              level={game.level}
+              genre={game.genre}
+              playTime={game.playTime}
+              complexity={game.complexity}
             />
 
             <AppBtn variation="link-btn" href={game.link}>

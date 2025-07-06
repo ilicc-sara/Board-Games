@@ -195,6 +195,24 @@ ion-icon {
   z-index: 5;
 }
 
+input,
+textarea {
+  width: 230px;
+  height: 28px;
+  font-size: 18px;
+}
+
+textarea {
+  height: 54px;
+}
+
+form {
+  border: 2px solid darkred;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 30px;
+}
+
 .hidden {
   display: none;
 }
