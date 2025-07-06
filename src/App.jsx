@@ -3,6 +3,7 @@ import "./App.css";
 import { info } from "./data";
 import GameDetails from "./GameDetails";
 import DisplayRatingStars from "./DisplayRatingStars";
+import AppBtn from "./AppBtn";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
@@ -38,9 +39,9 @@ function App() {
     <div ref={contentRef}>
       <nav>
         <h1>Board Games</h1>
-        <button onClick={() => reactToPrintFn()} className="save-as-pdf-btn">
+        <AppBtn variation="print-btn" handleClick={reactToPrintFn}>
           Save as PDF
-        </button>
+        </AppBtn>
       </nav>
 
       <main className="game-items-container">
@@ -64,13 +65,9 @@ function App() {
               level={game.level}
             />
 
-            <a
-              className="btn btn--primary learn-more"
-              href={`${game.link}`}
-              target="_blank"
-            >
+            <AppBtn variation="link-btn" href={game.link}>
               Learn More
-            </a>
+            </AppBtn>
           </article>
         ))}
       </main>
@@ -79,7 +76,7 @@ function App() {
 }
 // dodati sledece funkcionalnosti
 // dodavanje nove igrice :
-// odati neko dugme add new game
+// dodati neko dugme add new game
 // kad se na njega klikne treba se pojaviti overlay i forma po sredini ekrana
 // submit forme pravi novu igricu
 // edit postojece igrice

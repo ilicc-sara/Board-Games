@@ -25,24 +25,7 @@ h1 {
   font-size: 32px;
 }
 
-.save-as-pdf-btn {
-  position: absolute;
-  top: 50%;
-  right: 7%;
-  transform: translateY(-50%);
-  background-color: var(--text-color);
-  color: white;
-  font-weight: 800px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.save-as-pdf-btn:hover {
-  box-shadow: inset 0 0 0 1px #fff;
-}
+/* save-as-pdf-btn */
 
 .game-items-container {
   margin: 0 auto;
@@ -116,17 +99,48 @@ ion-icon {
   color: var(--text-color);
 }
 
-.learn-more {
+.btn {
+  border-radius: 5px;
+  border-width: 3px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  width: 7rem;
+  height: 2rem;
+}
+
+.btn-link {
   color: var(--text-color);
-  border: 3px solid var(--yellow-color);
-  border-radius: 10px;
-  padding: 10px 20px;
+  /* border: 3px solid var(--yellow-color); */
+  border-color: var(--yellow-color);
+  /* border-radius: 10px; */
+  /* padding: 10px 20px; */
   text-decoration: none;
-  width: fit-content;
+  /* width: fit-content; */
   font-weight: 500;
   transition: all 0.4s;
 }
 
-.learn-more:hover {
+.btn-link:hover {
   transform: scale(1.05);
+}
+
+.btn-pdf {
+  position: absolute;
+  top: 50%;
+  right: 7%;
+  transform: translateY(-50%);
+  background-color: var(--text-color);
+  color: white;
+  font-weight: 800px;
+  /* padding: 5px 10px; */
+  border-color: rgb(25, 25, 25);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.btn-pdf:hover {
+  box-shadow: inset 0 0 0 1px #fff;
 }
