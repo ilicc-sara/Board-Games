@@ -73,93 +73,93 @@ function App() {
         <div className="overlay" onClick={() => setShowForm(false)}>
           <h1 style={{ color: "white" }}>Add new Game</h1>
           <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-            <label>Set Game Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={inputs.name}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="Carcassonne"
-            />
-            <br />
-            <label>Description:</label>
-            <textarea
-              type="text"
-              name="description"
-              value={inputs.description}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="Players take turns drawing and placing tiles to build a medieval landscape filled with cities, roads, monasteries, and fields."
-            />
-            <br />
-            <label>Players:</label>
-            <input
-              type="text"
-              name="players"
-              value={inputs.players}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="2–5"
-            />
-            <br />
-            <label>Complexity:</label>
-            <input
-              type="text"
-              name="complexity"
-              value={inputs.complexity}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="easy"
-            />
-            <br />
-            <label>Genre:</label>
-            <input
-              type="text"
-              name="genre"
-              value={inputs.genre}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="Tile-laying, Strategy"
-            />
-            <br />
-            <label>Play Time:</label>
-            <input
-              type="text"
-              name="playTime"
-              value={inputs.playTime}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="35–45 minutes"
-            />
-            <br />
-            <label>Info Link:</label>
-            <input
-              type="text"
-              name="link"
-              value={inputs.link}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="https://(info link to learn more...)"
-            />
-            <br />
-            <label>Rating:</label>
-            <select
-              type="text"
-              name="rating"
-              value={inputs.rating}
-              onChange={(e) => handleInputChange(e)}
-              // required
-              placeholder="How would you rate this game?"
-            >
-              <option value="0">Leave rating...</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <br />
+            <div className="inputs-and-labels">
+              <label>Set Game Name:</label>
+              <input
+                type="text"
+                name="name"
+                value={inputs.name}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="Carcassonne"
+              />
+
+              <label>Description:</label>
+              <textarea
+                type="text"
+                name="description"
+                value={inputs.description}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="Players take turns drawing and placing tiles to build a medieval landscape filled with cities, roads, monasteries, and fields."
+              />
+
+              <label>Players:</label>
+              <input
+                type="text"
+                name="players"
+                value={inputs.players}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="2–5"
+              />
+
+              <label>Complexity:</label>
+              <input
+                type="text"
+                name="complexity"
+                value={inputs.complexity}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="easy"
+              />
+
+              <label>Genre:</label>
+              <input
+                type="text"
+                name="genre"
+                value={inputs.genre}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="Tile-laying, Strategy"
+              />
+
+              <label>Play Time:</label>
+              <input
+                type="text"
+                name="playTime"
+                value={inputs.playTime}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="35–45 minutes"
+              />
+
+              <label>Info Link:</label>
+              <input
+                type="text"
+                name="link"
+                value={inputs.link}
+                onChange={(e) => handleInputChange(e)}
+                required
+                placeholder="https://(info link to learn more...)"
+              />
+
+              <label>Rating:</label>
+              <select
+                type="text"
+                name="rating"
+                value={inputs.rating}
+                onChange={(e) => handleInputChange(e)}
+                placeholder="How would you rate this game?"
+              >
+                <option value="0">Leave rating...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
 
             <button> Add Game </button>
           </form>

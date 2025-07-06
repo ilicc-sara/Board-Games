@@ -47,9 +47,12 @@ h1 {
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
+  /* justify-content: space-between; */
   gap: 10px;
   background-color: rgb(246, 246, 255);
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+  height: 248px;
+  min-height: 248px;
 }
 
 .game-item:hover {
@@ -111,6 +114,7 @@ ion-icon {
   width: fit-content;
   padding: 0 1rem;
   height: 2rem;
+  background: none;
 }
 
 .btn-link {
@@ -196,8 +200,8 @@ ion-icon {
 }
 
 input,
-textarea {
-  width: 230px;
+textarea,
+select {
   height: 28px;
   font-size: 18px;
 }
@@ -211,6 +215,12 @@ form {
   width: fit-content;
   margin: 0 auto;
   padding: 30px;
+}
+
+.inputs-and-labels {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  row-gap: 10px;
 }
 
 .hidden {
