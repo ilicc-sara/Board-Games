@@ -51,8 +51,8 @@ function App() {
               <DisplayRatingStars
                 displayRating={displayRating}
                 rating={game.rating}
-                id={game.id}
                 handleClick={rate}
+                id={game.id}
               />
             </div>
             <p> {game.description} </p>
@@ -64,7 +64,11 @@ function App() {
               level={game.level}
             />
 
-            <a className="learn-more" href={`${game.link}`} target="_blank">
+            <a
+              className="btn btn--primary learn-more"
+              href={`${game.link}`}
+              target="_blank"
+            >
               Learn More
             </a>
           </article>
@@ -73,5 +77,15 @@ function App() {
     </div>
   );
 }
+// dodati sledece funkcionalnosti
+// dodavanje nove igrice :
+// odati neko dugme add new game
+// kad se na njega klikne treba se pojaviti overlay i forma po sredini ekrana
+// submit forme pravi novu igricu
+// edit postojece igrice
+// svako dugme treba imati mali edit btn
+// kad se klikne na edit btn otvori se ista forma kao za dodavanje nove igrice samo je popunjena vrednostima iz igrice
+// znaci potrebna ce biti neka komponenta createEditForm
+// za dugmad edit i create iskoristi app link componentu
 
 export default App;
