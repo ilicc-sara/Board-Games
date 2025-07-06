@@ -12,6 +12,9 @@ function AppBtn(props) {
   if (variation === "link-btn") {
     modifierClassName = "btn-link";
   }
+  if (variation === "new-game-btn") {
+    modifierClassName = "btn-new-game";
+  }
 
   if (href) {
     return (

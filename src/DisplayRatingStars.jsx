@@ -17,17 +17,3 @@ function DisplayRatingStars(props) {
 }
 
 export default DisplayRatingStars;
-
-// rateStar ? (
-//   <ion-icon
-//     key={index}
-//     name="star"
-//     onClick={() => handleClick(id, index)}
-//   ></ion-icon>
-// ) : (
-//   <ion-icon
-//     key={index}
-//     name="star-outline"
-//     onClick={() => handleClick(id, index)}
-//   ></ion-icon>
-// )
