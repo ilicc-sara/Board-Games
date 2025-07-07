@@ -35,6 +35,12 @@ function Form(props) {
         />
 
         <label>Complexity:</label>
+        {/* <Input
+          name="complexity"
+          value={inputs.complexity}
+          handleOnChange={handleInputChange}
+          placeholder="easy"
+        /> */}
         <select
           type="text"
           name="complexity"
@@ -42,9 +48,10 @@ function Form(props) {
           onChange={(e) => handleInputChange(e)}
           required
         >
-          <option>Easy</option>
-          <option>Medium</option>
-          <option>Hard</option>
+          <option value="">Choose complexity...</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
         </select>
 
         <label>Genre:</label>
