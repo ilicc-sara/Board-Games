@@ -17,12 +17,11 @@ function Form(props) {
         />
 
         <label>Description:</label>
-        <textarea
-          type="text"
+        <Input
+          textarea
           name="description"
           value={inputs.description}
-          onChange={(e) => handleInputChange(e)}
-          required
+          handleOnChange={handleInputChange}
           placeholder="Players take turns drawing and placing tiles to build a medieval landscape filled with cities, roads, monasteries, and fields."
         />
 
@@ -35,12 +34,6 @@ function Form(props) {
         />
 
         <label>Complexity:</label>
-        {/* <Input
-          name="complexity"
-          value={inputs.complexity}
-          handleOnChange={handleInputChange}
-          placeholder="easy"
-        /> */}
         <select
           type="text"
           name="complexity"
