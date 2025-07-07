@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { info } from "./data";
 import GameDetails from "./GameDetails";
 import DisplayRatingStars from "./DisplayRatingStars";
 import AppBtn from "./AppBtn";
-import Input from "./Input";
+import Form from "./Form";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
@@ -22,9 +22,8 @@ function App() {
     link: "",
     rating: "",
     id: crypto.randomUUID(),
+    isEditing: false,
   });
-  console.log(inputs);
-  console.log(information);
 
   const contentRef = useRef(null);
   const reactToPrintFn = useReactToPrint({ contentRef });
@@ -62,7 +61,59 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setInformation((prev) => [...prev, inputs]);
+
+    if (information.every((game) => !game.isEditing)) {
+      setInformation((prev) => [...prev, inputs]);
+    } else {
+      setInformation((prev) =>
+        prev.map((game) => {
+          if (game.isEditing) {
+            return { ...inputs };
+          } else return game;
+        })
+      );
+    }
+
+    setInputs({
+      name: "",
+      description: "",
+      players: "",
+      complexity: "",
+      genre: "",
+      playTime: "",
+      link: "",
+      rating: "",
+      id: crypto.randomUUID(),
+    });
+    setInformation((prev) =>
+      prev.map((game) => {
+        return { ...game, isEditing: false };
+      })
+    );
+    setShowForm(false);
+  }
+
+  function setEditing(game) {
+    setShowForm(true);
+
+    setInputs({ ...game });
+    setInformation((prev) =>
+      prev.map((gameItem) => {
+        if (game.id === gameItem.id) {
+          return { ...gameItem, isEditing: true };
+        } else return { ...gameItem, isEditing: false };
+      })
+    );
+  }
+
+  const isEditing = information.every((game) => !game.isEditing);
+
+  function closeOverlay() {
+    setInformation((prev) =>
+      prev.map((game) => {
+        return { ...game, isEditing: false };
+      })
+    );
     setInputs({
       name: "",
       description: "",
@@ -80,87 +131,13 @@ function App() {
   return (
     <div ref={contentRef}>
       {showForm && (
-        <div className="overlay" onClick={() => setShowForm(false)}>
-          <h1 style={{ color: "white" }}>Add new Game</h1>
-          <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-            <div className="inputs-and-labels">
-              <label>Set Game Name:</label>
-              <Input
-                name="name"
-                value={inputs.name}
-                handleOnChange={handleInputChange}
-                placeholder="Carcassonne"
-              />
-
-              <label>Description:</label>
-              <textarea
-                type="text"
-                name="description"
-                value={inputs.description}
-                onChange={(e) => handleInputChange(e)}
-                required
-                placeholder="Players take turns drawing and placing tiles to build a medieval landscape filled with cities, roads, monasteries, and fields."
-              />
-
-              <label>Players:</label>
-              <Input
-                name="players"
-                value={inputs.players}
-                handleOnChange={handleInputChange}
-                placeholder="2-5"
-              />
-
-              <label>Complexity:</label>
-              <Input
-                name="complexity"
-                value={inputs.complexity}
-                handleOnChange={handleInputChange}
-                placeholder="easy"
-              />
-
-              <label>Genre:</label>
-              <Input
-                name="genre"
-                value={inputs.genre}
-                handleOnChange={handleInputChange}
-                placeholder="Tile-laying, Strategy"
-              />
-
-              <label>Play Time:</label>
-              <Input
-                name="playTime"
-                value={inputs.playTime}
-                handleOnChange={handleInputChange}
-                placeholder="35-45 minutes"
-              />
-
-              <label>Info Link:</label>
-              <Input
-                name="link"
-                value={inputs.link}
-                handleOnChange={handleInputChange}
-                placeholder="https://(info link to learn more...)"
-              />
-
-              <label>Rating:</label>
-              <select
-                type="text"
-                name="rating"
-                value={inputs.rating}
-                onChange={(e) => handleInputChange(e)}
-                placeholder="How would you rate this game?"
-              >
-                <option value="0">Leave rating...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-
-            <button> Add Game </button>
-          </form>
+        <div className="overlay" onClick={() => closeOverlay()}>
+          <Form
+            handleSubmit={handleSubmit}
+            isEditing={isEditing}
+            inputs={inputs}
+            handleInputChange={handleInputChange}
+          />
         </div>
       )}
 
@@ -197,9 +174,14 @@ function App() {
               complexity={game.complexity}
             />
 
-            <AppBtn variation="link-btn" href={game.link}>
-              Learn More
-            </AppBtn>
+            <div className="link-and-edit">
+              <AppBtn variation="link-btn" href={game.link}>
+                Learn More
+              </AppBtn>
+              <AppBtn variation="edit-btn" handleClick={() => setEditing(game)}>
+                Edit
+              </AppBtn>
+            </div>
           </article>
         ))}
       </main>
@@ -207,13 +189,13 @@ function App() {
   );
 }
 // dodati sledece funkcionalnosti
-// dodavanje nove igrice :
-// dodati neko dugme add new game
-// kad se na njega klikne treba se pojaviti overlay i forma po sredini ekrana
-// submit forme pravi novu igricu
-// edit postojece igrice
-// svako dugme treba imati mali edit btn
-// kad se klikne na edit btn otvori se ista forma kao za dodavanje nove igrice samo je popunjena vrednostima iz igrice
+// dodavanje nove igrice : ✅
+// dodati neko dugme add new game ✅
+// kad se na njega klikne treba se pojaviti overlay i forma po sredini ekrana ✅
+// submit forme pravi novu igricu ✅
+// edit postojece igrice ✅
+// svako dugme treba imati mali edit btn ✅
+// kad se klikne na edit btn otvori se ista forma kao za dodavanje nove igrice samo je popunjena vrednostima iz igrice ✅
 // znaci potrebna ce biti neka komponenta createEditForm
 // za dugmad edit i create iskoristi app link componentu ✅
 

@@ -140,7 +140,7 @@ ion-icon {
   gap: 20px;
 }
 
-.primary-btn {
+.btn-primary {
   background-color: var(--text-color);
   color: white;
   /* padding: 5px 10px; */
@@ -150,8 +150,33 @@ ion-icon {
   cursor: pointer;
 }
 
-.primary-btn:hover {
+.btn-primary:hover {
   box-shadow: inset 0 0 0 1px #fff;
+}
+
+.link-and-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-edit {
+  background-color: var(--text-color);
+  color: var(--text-color);
+  border-color: var(--text-color);
+  border-radius: 5px;
+
+  cursor: pointer;
+  width: 100px;
+  background-color: #fff;
+
+  transition: all 0.4s;
+}
+
+.btn-edit:hover {
+  /* transform: scale(1.05); */
+  color: white;
+  background-color: var(--text-color);
 }
 
 .overlay {
@@ -165,11 +190,27 @@ ion-icon {
   z-index: 5;
 }
 
+label {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+
 input,
 textarea,
 select {
-  height: 28px;
-  font-size: 18px;
+  height: 30px;
+  font-size: 20px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: rgb(141, 141, 141);
 }
 
 textarea {
@@ -177,10 +218,15 @@ textarea {
 }
 
 form {
-  border: 2px solid darkred;
   width: fit-content;
-  margin: 0 auto;
-  padding: 30px;
+  margin: 15vh auto;
+  padding: 15px 30px;
+  background-color: rgb(227, 227, 255);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .inputs-and-labels {
