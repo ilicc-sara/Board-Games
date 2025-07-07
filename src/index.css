@@ -75,6 +75,10 @@ h1 {
   height: 15px;
 }
 
+.game-description {
+  min-height: 43px;
+}
+
 .game-details {
   display: grid;
   grid-template-columns: 1fr 1fr;

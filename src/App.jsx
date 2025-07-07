@@ -4,6 +4,7 @@ import { info } from "./data";
 import GameDetails from "./GameDetails";
 import DisplayRatingStars from "./DisplayRatingStars";
 import AppBtn from "./AppBtn";
+import Input from "./Input";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
@@ -61,9 +62,18 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     setInformation((prev) => [...prev, inputs]);
-
+    setInputs({
+      name: "",
+      description: "",
+      players: "",
+      complexity: "",
+      genre: "",
+      playTime: "",
+      link: "",
+      rating: "",
+      id: crypto.randomUUID(),
+    });
     setShowForm(false);
   }
 
@@ -75,12 +85,10 @@ function App() {
           <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
             <div className="inputs-and-labels">
               <label>Set Game Name:</label>
-              <input
-                type="text"
+              <Input
                 name="name"
                 value={inputs.name}
-                onChange={(e) => handleInputChange(e)}
-                required
+                handleOnChange={handleInputChange}
                 placeholder="Carcassonne"
               />
 
@@ -95,52 +103,42 @@ function App() {
               />
 
               <label>Players:</label>
-              <input
-                type="text"
+              <Input
                 name="players"
                 value={inputs.players}
-                onChange={(e) => handleInputChange(e)}
-                required
-                placeholder="2–5"
+                handleOnChange={handleInputChange}
+                placeholder="2-5"
               />
 
               <label>Complexity:</label>
-              <input
-                type="text"
+              <Input
                 name="complexity"
                 value={inputs.complexity}
-                onChange={(e) => handleInputChange(e)}
-                required
+                handleOnChange={handleInputChange}
                 placeholder="easy"
               />
 
               <label>Genre:</label>
-              <input
-                type="text"
+              <Input
                 name="genre"
                 value={inputs.genre}
-                onChange={(e) => handleInputChange(e)}
-                required
+                handleOnChange={handleInputChange}
                 placeholder="Tile-laying, Strategy"
               />
 
               <label>Play Time:</label>
-              <input
-                type="text"
+              <Input
                 name="playTime"
                 value={inputs.playTime}
-                onChange={(e) => handleInputChange(e)}
-                required
-                placeholder="35–45 minutes"
+                handleOnChange={handleInputChange}
+                placeholder="35-45 minutes"
               />
 
               <label>Info Link:</label>
-              <input
-                type="text"
+              <Input
                 name="link"
                 value={inputs.link}
-                onChange={(e) => handleInputChange(e)}
-                required
+                handleOnChange={handleInputChange}
                 placeholder="https://(info link to learn more...)"
               />
 
@@ -190,7 +188,7 @@ function App() {
                 id={game.id}
               />
             </div>
-            <p> {game.description} </p>
+            <p className="game-description"> {game.description} </p>
 
             <GameDetails
               players={game.players}
