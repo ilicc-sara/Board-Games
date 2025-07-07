@@ -3,10 +3,10 @@ import Input from "./Input";
 import AppBtn from "./AppBtn";
 
 function Form(props) {
-  const { handleSubmit, isEditing, inputs, handleInputChange } = props;
+  const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
   return (
     <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-      <h2> {`${isEditing ? "Add new Game" : "Edit Game"}`}</h2>
+      <h2> {`${isNotEditing ? "Add new Game" : "Edit Game"}`}</h2>
       <div className="inputs-and-labels">
         <label>Set Game Name:</label>
         <Input
@@ -88,7 +88,7 @@ function Form(props) {
       </div>
 
       <AppBtn variation="primary-btn">
-        {`${isEditing ? "Add Game" : "Edit game"}`}
+        {`${isNotEditing ? "Add Game" : "Edit game"}`}
       </AppBtn>
     </form>
   );

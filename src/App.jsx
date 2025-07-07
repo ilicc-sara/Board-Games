@@ -30,7 +30,6 @@ function App() {
 
   function displayRating(ratingNumber) {
     const maxRateNumber = 5;
-
     const number = Number(ratingNumber);
 
     const rateNumber = Array(number).fill(true);
@@ -75,11 +74,12 @@ function App() {
       link: "",
       rating: "",
       id: crypto.randomUUID(),
+      isEditing: false,
     });
     setShowForm(false);
   }
 
-  const isEditing = information.every((game) => !game.isEditing);
+  const isNotEditing = information.every((game) => !game.isEditing);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -119,7 +119,7 @@ function App() {
         <div className="overlay" onClick={() => closeOverlay()}>
           <Form
             handleSubmit={handleSubmit}
-            isEditing={isEditing}
+            isNotEditing={isNotEditing}
             inputs={inputs}
             handleInputChange={handleInputChange}
           />
