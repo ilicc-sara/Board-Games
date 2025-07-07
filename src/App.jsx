@@ -59,55 +59,6 @@ function App() {
     });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (information.every((game) => !game.isEditing)) {
-      setInformation((prev) => [...prev, inputs]);
-    } else {
-      setInformation((prev) =>
-        prev.map((game) => {
-          if (game.isEditing) {
-            return { ...inputs };
-          } else return game;
-        })
-      );
-    }
-
-    setInputs({
-      name: "",
-      description: "",
-      players: "",
-      complexity: "",
-      genre: "",
-      playTime: "",
-      link: "",
-      rating: "",
-      id: crypto.randomUUID(),
-    });
-    setInformation((prev) =>
-      prev.map((game) => {
-        return { ...game, isEditing: false };
-      })
-    );
-    setShowForm(false);
-  }
-
-  function setEditing(game) {
-    setShowForm(true);
-
-    setInputs({ ...game });
-    setInformation((prev) =>
-      prev.map((gameItem) => {
-        if (game.id === gameItem.id) {
-          return { ...gameItem, isEditing: true };
-        } else return { ...gameItem, isEditing: false };
-      })
-    );
-  }
-
-  const isEditing = information.every((game) => !game.isEditing);
-
   function closeOverlay() {
     setInformation((prev) =>
       prev.map((game) => {
@@ -126,6 +77,40 @@ function App() {
       id: crypto.randomUUID(),
     });
     setShowForm(false);
+  }
+
+  const isEditing = information.every((game) => !game.isEditing);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (information.every((game) => !game.isEditing)) {
+      setInformation((prev) => [...prev, inputs]);
+    } else {
+      setInformation((prev) =>
+        prev.map((game) => {
+          if (game.isEditing) {
+            return { ...inputs };
+          } else return game;
+        })
+      );
+    }
+
+    closeOverlay();
+  }
+
+  function setEditing(game) {
+    setShowForm(true);
+
+    setInputs({ ...game });
+
+    setInformation((prev) =>
+      prev.map((gameItem) => {
+        if (game.id === gameItem.id) {
+          return { ...gameItem, isEditing: true };
+        } else return { ...gameItem, isEditing: false };
+      })
+    );
   }
 
   return (
