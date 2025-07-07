@@ -168,12 +168,14 @@ function App() {
 
       <nav>
         <h1>Board Games</h1>
-        <AppBtn variation="print-btn" handleClick={reactToPrintFn}>
-          Save as PDF
-        </AppBtn>
-        <AppBtn variation="new-game-btn" handleClick={() => setShowForm(true)}>
-          Add New Game
-        </AppBtn>
+        <div className="primary-buttons">
+          <AppBtn variation="primary-btn" handleClick={() => setShowForm(true)}>
+            Add New Game
+          </AppBtn>
+          <AppBtn variation="primary-btn" handleClick={reactToPrintFn}>
+            Save as PDF
+          </AppBtn>
+        </div>
       </nav>
 
       <main className="game-items-container">

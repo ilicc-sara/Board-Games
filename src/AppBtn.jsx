@@ -6,14 +6,12 @@ function AppBtn(props) {
   const baseClassName = "btn";
   let modifierClassName;
 
-  if (variation === "print-btn") {
-    modifierClassName = "btn-pdf";
+  if (variation === "primary-btn") {
+    modifierClassName = "primary-btn";
   }
+
   if (variation === "link-btn") {
     modifierClassName = "btn-link";
-  }
-  if (variation === "new-game-btn") {
-    modifierClassName = "btn-new-game";
   }
 
   if (href) {

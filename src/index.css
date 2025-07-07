@@ -17,15 +17,15 @@ body {
 }
 
 nav {
+  width: 100%;
+  margin: 0 auto;
   position: relative;
+  margin-bottom: 50px;
 }
 
 h1 {
-  margin-bottom: 40px;
   font-size: 32px;
 }
-
-/* save-as-pdf-btn */
 
 .game-items-container {
   margin: 0 auto;
@@ -35,8 +35,6 @@ h1 {
   justify-content: center;
   width: 90%;
   row-gap: 30px;
-  padding-top: 2%;
-  position: relative;
 }
 
 .game-item {
@@ -47,16 +45,16 @@ h1 {
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+
   gap: 10px;
   background-color: rgb(246, 246, 255);
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-  height: 248px;
+  /* height: 248px; */
   min-height: 248px;
 }
 
 .game-item:hover {
-  /*  */
+  opacity: 1;
 }
 
 .title-rating-cont {
@@ -119,12 +117,8 @@ ion-icon {
 
 .btn-link {
   color: var(--text-color);
-  /* border: 3px solid var(--yellow-color); */
   border-color: var(--yellow-color);
-  /* border-radius: 10px; */
-  /* padding: 10px 20px; */
   text-decoration: none;
-  /* width: fit-content; */
   font-weight: 500;
   transition: all 0.4s;
 }
@@ -133,11 +127,16 @@ ion-icon {
   transform: scale(1.05);
 }
 
-.btn-pdf {
+.primary-buttons {
   position: absolute;
-  top: 140%;
-  right: 7%;
+  top: 50%;
+  right: 0;
   transform: translateY(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.primary-btn {
   background-color: var(--text-color);
   color: white;
   /* padding: 5px 10px; */
@@ -147,46 +146,9 @@ ion-icon {
   cursor: pointer;
 }
 
-.btn-new-game {
-  position: absolute;
-  top: 140%;
-  right: 19%;
-  transform: translateY(-50%);
-  background-color: var(--text-color);
-  color: white;
-  /* padding: 5px 10px; */
-  border-color: rgb(25, 25, 25);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.btn-pdf:hover,
-.btn-new-game:hover {
+.primary-btn:hover {
   box-shadow: inset 0 0 0 1px #fff;
 }
-
-/* .btn-new-game {
-  background-color: var(--text-color);
-  color: white;
-  font-weight: 800px;
-  border-color: rgb(25, 25, 25);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 600;
-  height: fit-content;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  transition: all 0.8s;
-  position: absolute;
-  bottom: -40px;
-}
-
-.btn-new-game:hover {
-  box-shadow: inset 0 0 0 1px #fff;
-} */
 
 .overlay {
   position: fixed;
