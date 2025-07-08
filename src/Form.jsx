@@ -8,7 +8,7 @@ function Form(props) {
     <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
       <h2> {`${isNotEditing ? "Add new Game" : "Edit Game"}`}</h2>
       <div className="inputs-and-labels">
-        <label>Set Game Name:</label>
+        <label>Game Name:</label>
         <Input
           name="name"
           value={inputs.name}

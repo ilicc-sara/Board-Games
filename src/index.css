@@ -13,7 +13,7 @@
 
 body {
   /* background-color: rgb(227, 227, 255); */
-  background: linear-gradient(90deg, #f8deff 0%, #fffad8 100%);
+  background: linear-gradient(90deg, #f6ebf9 0%, #fffdf2 100%);
   color: var(--text-color);
   font-family: "ABeeZee", monospace;
 }
@@ -223,21 +223,23 @@ h1 {
 
 label {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: left;
 }
 
 input,
 textarea,
 select {
-  height: 30px;
+  /* height: 30px; */
+  width: 450px;
   font-size: 20px;
+  padding: 5px;
   padding-left: 10px;
   border: none;
   border-radius: 5px;
   font-family: inherit;
   float: left;
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   transition: 300ms ease-in-out;
 }
@@ -263,18 +265,22 @@ form {
   width: fit-content;
   margin: 15vh auto;
   padding: 15px 30px;
-  background-color: rgb(227, 227, 255);
+  background: linear-gradient(90deg, #f8deff 0%, #fffadf 100%);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
 .inputs-and-labels {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  align-items: center;
+  justify-content: center;
   row-gap: 10px;
+  column-gap: 10px;
 }
 
 .hidden {
