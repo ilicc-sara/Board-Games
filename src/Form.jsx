@@ -4,6 +4,7 @@ import AppBtn from "./AppBtn";
 
 function Form(props) {
   const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
+
   return (
     <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
       <h2> {`${isNotEditing ? "Add new Game" : "Edit Game"}`}</h2>

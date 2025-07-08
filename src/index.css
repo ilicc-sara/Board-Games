@@ -126,7 +126,8 @@ h1 {
   display: inline-block; /* or inline-flex */
   position: relative;
   /* background: linear-gradient(90deg, #8600ab 0%, #b77700 100%); */
-  background: linear-gradient(90deg, #c800ff 0%, #ffdd00 100%);
+  /* background: linear-gradient(90deg, #c800ff 0%, #ffdd00 100%); */
+  background: linear-gradient(90deg, #c800ffc2 0%, #ff4800bf 100%);
   display: flex;
   justify-content: center;
   align-items: center;
