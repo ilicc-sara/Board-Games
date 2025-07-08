@@ -4,6 +4,7 @@ import AppBtn from "./AppBtn";
 
 function Form(props) {
   // const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
+  const { information, setInformation, setShowForm } = props;
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -25,11 +26,27 @@ function Form(props) {
     });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // if (information.every((game) => !game.isEditing)) {
+    setInformation((prev) => [...prev, inputs]);
+    // } else {
+    //   setInformation((prev) =>
+    //     prev.map((game) => {
+    //       if (game.isEditing) {
+    //         return { ...inputs };
+    //       } else return game;
+    //     })
+    //   );
+    // }
+
+    // closeOverlay();
+    setShowForm(false);
+  }
+
   return (
-    <form
-      onClick={(e) => e.stopPropagation()}
-      onSubmit={(e) => e.preventDefault()}
-    >
+    <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
       <h2>
         {/* {`${isNotEditing ? "Add new Game" : "Edit Game"}`} */} Add new Game
       </h2>

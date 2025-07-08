@@ -107,10 +107,13 @@ function App() {
           }
         >
           <Form
-          // handleSubmit={handleSubmit}
-          // isNotEditing={isNotEditing}
-          // inputs={inputs}
-          // handleInputChange={handleInputChange}
+            // handleSubmit={handleSubmit}
+            // isNotEditing={isNotEditing}
+            // inputs={inputs}
+            // handleInputChange={handleInputChange}
+            information={information}
+            setInformation={setInformation}
+            setShowForm={setShowForm}
           />
         </div>
       )}
