@@ -11,19 +11,6 @@ function App() {
   const [information, setInformation] = useState(info);
   const [showForm, setShowForm] = useState(false);
 
-  const [inputs, setInputs] = useState({
-    name: "",
-    description: "",
-    players: "",
-    complexity: "",
-    genre: "",
-    playTime: "",
-    link: "",
-    rating: "",
-    id: crypto.randomUUID(),
-    isEditing: false,
-  });
-
   const contentRef = useRef(null);
   const reactToPrintFn = useReactToPrint({ contentRef });
 
@@ -39,66 +26,63 @@ function App() {
     );
   }
 
-  function handleInputChange(e) {
-    setInputs((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
-  }
+  // function closeOverlay() {
+  //   setInformation((prev) =>
+  //     prev.map((game) => {
+  //       return { ...game, isEditing: false };
+  //     })
+  //   );
+  //   setInputs({
+  //     name: "",
+  //     description: "",
+  //     players: "",
+  //     complexity: "",
+  //     genre: "",
+  //     playTime: "",
+  //     link: "",
+  //     rating: "",
+  //     id: crypto.randomUUID(),
+  //     isEditing: false,
+  //   });
+  //   setShowForm(false);
+  // }
 
-  function closeOverlay() {
-    setInformation((prev) =>
-      prev.map((game) => {
-        return { ...game, isEditing: false };
-      })
-    );
-    setInputs({
-      name: "",
-      description: "",
-      players: "",
-      complexity: "",
-      genre: "",
-      playTime: "",
-      link: "",
-      rating: "",
-      id: crypto.randomUUID(),
-      isEditing: false,
-    });
-    setShowForm(false);
-  }
+  // const isNotEditing = information.every((game) => !game.isEditing);
 
-  const isNotEditing = information.every((game) => !game.isEditing);
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  //   if (information.every((game) => !game.isEditing)) {
+  //     setInformation((prev) => [...prev, inputs]);
+  //   } else {
+  //     setInformation((prev) =>
+  //       prev.map((game) => {
+  //         if (game.isEditing) {
+  //           return { ...inputs };
+  //         } else return game;
+  //       })
+  //     );
+  //   }
 
-    if (information.every((game) => !game.isEditing)) {
-      setInformation((prev) => [...prev, inputs]);
-    } else {
-      setInformation((prev) =>
-        prev.map((game) => {
-          if (game.isEditing) {
-            return { ...inputs };
-          } else return game;
-        })
-      );
-    }
+  //   closeOverlay();
+  // }
 
-    closeOverlay();
-  }
+  // function setEditing(game) {
+  //   setShowForm(true);
 
-  function setEditing(game) {
-    setShowForm(true);
+  //   setInputs({ ...game });
 
-    setInputs({ ...game });
+  //   setInformation((prev) =>
+  //     prev.map((gameItem) => {
+  //       if (game.id === gameItem.id) {
+  //         return { ...gameItem, isEditing: true };
+  //       } else return { ...gameItem, isEditing: false };
+  //     })
+  //   );
+  // }
 
-    setInformation((prev) =>
-      prev.map((gameItem) => {
-        if (game.id === gameItem.id) {
-          return { ...gameItem, isEditing: true };
-        } else return { ...gameItem, isEditing: false };
-      })
-    );
-  }
+  // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   // forma treba biti komponenta koja drzi stejt inputa
   // ti inputi mogu biti prazni a mogu biti i prepopunjeni vrednostima iz igrice
   // znam da je is editign true ako sam primila inpute iz igrice kao prop
@@ -115,12 +99,18 @@ function App() {
   return (
     <div ref={contentRef}>
       {showForm && (
-        <div className="overlay" onClick={() => closeOverlay()}>
+        <div
+          className="overlay"
+          onClick={
+            () => setShowForm(true)
+            // closeOverlay()
+          }
+        >
           <Form
-            handleSubmit={handleSubmit}
-            isNotEditing={isNotEditing}
-            inputs={inputs}
-            handleInputChange={handleInputChange}
+          // handleSubmit={handleSubmit}
+          // isNotEditing={isNotEditing}
+          // inputs={inputs}
+          // handleInputChange={handleInputChange}
           />
         </div>
       )}
@@ -167,7 +157,11 @@ function App() {
           //     </AppBtn>
           //   </div>
           // </article>
-          <GameItem game={game} rate={rate} setEditing={setEditing} />
+          <GameItem
+            game={game}
+            rate={rate}
+            // setEditing={setEditing}
+          />
         ))}
       </main>
     </div>

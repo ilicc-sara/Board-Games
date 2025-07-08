@@ -6,7 +6,7 @@ import AppBtn from "./AppBtn";
 function GameItem(props) {
   const { game, rate, setEditing } = props;
 
-  console.log(game.isEditing);
+  // console.log(game.isEditing);
 
   function displayRating(ratingNumber) {
     const maxRateNumber = 5;

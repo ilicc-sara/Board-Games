@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input";
 import AppBtn from "./AppBtn";
 
 function Form(props) {
-  const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
+  // const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
+
+  const [inputs, setInputs] = useState({
+    name: "",
+    description: "",
+    players: "",
+    complexity: "",
+    genre: "",
+    playTime: "",
+    link: "",
+    rating: "",
+    id: crypto.randomUUID(),
+    isEditing: false,
+  });
+  console.log(inputs);
+
+  function handleInputChange(e) {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  }
 
   return (
-    <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-      <h2> {`${isNotEditing ? "Add new Game" : "Edit Game"}`}</h2>
+    <form
+      onClick={(e) => e.stopPropagation()}
+      onSubmit={(e) => e.preventDefault()}
+    >
+      <h2>
+        {/* {`${isNotEditing ? "Add new Game" : "Edit Game"}`} */} Add new Game
+      </h2>
       <div className="inputs-and-labels">
         <label>Game Name:</label>
         <Input
@@ -106,7 +131,7 @@ function Form(props) {
       </div>
 
       <AppBtn variation="primary-btn">
-        {`${isNotEditing ? "Add Game" : "Edit game"}`}
+        {/* {`${isNotEditing ? "Add Game" : "Edit game"}`} */} Add Game
       </AppBtn>
     </form>
   );
