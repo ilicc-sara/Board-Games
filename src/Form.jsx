@@ -47,6 +47,15 @@ function Form(props) {
           <option value="Hard">Hard</option>
         </select>
 
+        {/* <Input
+          optionsValues={["", "Easy", "Medium", "Hard"]}
+          options={["Choose complexity...", "Easy", "Medium", "Hard"]}
+          name="complexity"
+          value={inputs.complexity}
+          handleOnChange={handleInputChange}
+          required={true}
+        /> */}
+
         <label>Genre:</label>
         <Input
           name="genre"
@@ -85,6 +94,14 @@ function Form(props) {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        {/* <Input
+          optionsValues={["0", "1", "2", "3", "4", "5"]}
+          options={["Leave rating...", "1", "2", "3", "4", "5"]}
+          name="rating"
+          value={inputs.rating}
+          handleOnChange={handleInputChange}
+          required={false}
+        /> */}
       </div>
 
       <AppBtn variation="primary-btn">

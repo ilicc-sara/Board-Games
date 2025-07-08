@@ -6,16 +6,20 @@ function GameDetails(props) {
   return (
     <div className="game-details">
       <p className="game-detail">
-        <ion-icon name="people-outline"></ion-icon> {players}
+        <img src="./images/People_icon.svg.png" className="icon-png" />
+        {players}
       </p>
       <p className="game-detail">
-        <img className="social-game-icon" src={"./social-game.png"} /> {genre}
+        <img src="./images/board-game-icon.png" className="icon-png" />
+        {genre}
       </p>
       <p className="game-detail">
-        <ion-icon name="time-outline"></ion-icon> {playTime}
+        <img src="./images/clock-icn.png" className="icon-png" />
+        {playTime}
       </p>
       <p className="game-detail">
-        <ion-icon name="stats-chart-outline"></ion-icon>
+        <img src="./images/chart-game-icon.png" className="icon-png" />
+
         {complexity}
       </p>
     </div>

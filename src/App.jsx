@@ -112,7 +112,19 @@ function App() {
       })
     );
   }
-
+  // forma treba biti komponenta koja drzi stejt inputa
+  // ti inputi mogu biti prazni a mogu biti i prepopunjeni vrednostima iz igrice
+  // znam da je is editign true ako sam primila inpute iz igrice kao prop
+  // formu komponentu treba iskoristiti na dva mesta
+  // prvo mesto gde treba iskoristiti je u app jsx
+  // tu u app.jsx ne prosledjujem igricu kao prop jer je to tu create
+  // kada tu otvorim formu to je create
+  //
+  // kada radim map preko igrica vratim koponentu single game ili game card
+  // unutar te komponente napravim isEditing true ili false stejt
+  // na klik dugmeta edit stavljam isEdit true
+  // ta komponenta treba da prikazuje i formu ako je is editing true i da prosledi propove iz same sebe
+  // posto je forma sada dobila igricu kao prop ona zna da je editing
   return (
     <div ref={contentRef}>
       {showForm && (
