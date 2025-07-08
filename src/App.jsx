@@ -154,7 +154,7 @@ function App() {
         {information.map((game) => (
           <article className="game-item">
             <div className="title-rating-cont">
-              <h3> {game.name} </h3>
+              <h3 className="game-name"> {game.name} </h3>
               <DisplayRatingStars
                 displayRating={displayRating}
                 rating={game.rating}

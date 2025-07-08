@@ -12,7 +12,8 @@
 }
 
 body {
-  background-color: rgb(227, 227, 255);
+  /* background-color: rgb(227, 227, 255); */
+  background: linear-gradient(90deg, #f8deff 0%, #fffad8 100%);
   color: var(--text-color);
   font-family: "ABeeZee", monospace;
 }
@@ -47,7 +48,7 @@ h1 {
   display: flex;
   flex-direction: column;
 
-  gap: 10px;
+  gap: 14px;
   background-color: rgb(246, 246, 255);
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
   /* height: 248px; */
@@ -62,6 +63,10 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.game-name {
+  font-size: 22px;
 }
 
 .rating-stars {
@@ -231,6 +236,17 @@ select {
   border: none;
   border-radius: 5px;
   font-family: inherit;
+  float: left;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  transition: 300ms ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  /* transform: scale(1.05); */
+  box-shadow: 13px 13px 100px #969696, -13px -13px 100px #ffffff;
 }
 
 input::placeholder,
