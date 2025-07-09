@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Input from "./Input";
+import Select from "./Select";
 import AppBtn from "./AppBtn";
 
 function Form(props) {
@@ -82,18 +83,14 @@ function Form(props) {
         />
 
         <label>Complexity:</label>
-        <select
-          type="text"
+        <Select
           name="complexity"
           value={inputs.complexity}
-          onChange={(e) => handleInputChange(e)}
-          required
-        >
-          <option value="">Choose complexity...</option>
-          <option value="Easy">Easy</option>
-          <option value="Medium">Medium</option>
-          <option value="Hard">Hard</option>
-        </select>
+          handleOnChange={handleInputChange}
+          required={true}
+          values={["", "Easy", "Medium", "Hard"]}
+          options={["Choose complexity...", "Easy", "Medium", "Hard"]}
+        />
 
         <label>Genre:</label>
         <Input
@@ -120,19 +117,14 @@ function Form(props) {
         />
 
         <label>Rating:</label>
-        <select
-          type="text"
+        <Select
           name="rating"
           value={inputs.rating}
-          onChange={(e) => handleInputChange(e)}
-        >
-          <option value="0">Leave rating...</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+          handleOnChange={handleInputChange}
+          required={false}
+          values={["0", "1", "2", "3", "4", "5"]}
+          options={["Leave rating...", "1", "2", "3", "4", "5"]}
+        />
       </div>
 
       <AppBtn variation="primary-btn">
