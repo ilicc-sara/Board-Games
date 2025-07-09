@@ -14,18 +14,6 @@ function App() {
   const contentRef = useRef(null);
   const reactToPrintFn = useReactToPrint({ contentRef });
 
-  function rate(id, index) {
-    setInformation((prev) =>
-      prev.map((item) => {
-        if (item.id === id) {
-          return { ...item, rating: index + 1 };
-        } else {
-          return item;
-        }
-      })
-    );
-  }
-
   return (
     <div ref={contentRef}>
       {showForm && (
@@ -55,7 +43,6 @@ function App() {
         {information.map((game) => (
           <GameItem
             game={game}
-            rate={rate}
             information={information}
             setInformation={setInformation}
           />

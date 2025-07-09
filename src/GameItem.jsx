@@ -5,7 +5,7 @@ import AppBtn from "./AppBtn";
 import Form from "./Form";
 
 function GameItem(props) {
-  const { game, rate, information, setInformation } = props;
+  const { game, information, setInformation } = props;
   const [showEditForm, setShowEditForm] = useState(false);
 
   function displayRating(ratingNumber) {
@@ -18,6 +18,18 @@ function GameItem(props) {
     const sum = [...rateNumber, ...rateDifference];
 
     return sum;
+  }
+
+  function rate(id, index) {
+    setInformation((prev) =>
+      prev.map((item) => {
+        if (item.id === id) {
+          return { ...item, rating: index + 1 };
+        } else {
+          return item;
+        }
+      })
+    );
   }
 
   return (
