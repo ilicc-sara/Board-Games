@@ -3,8 +3,8 @@ import Input from "./Input";
 import AppBtn from "./AppBtn";
 
 function Form(props) {
-  // const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
-  const { information, setInformation, setShowForm, game } = props;
+  // prettier-ignore
+  const { setInformation, setShowForm, game, variation, setShowEditForm, id } = props;
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -18,7 +18,6 @@ function Form(props) {
     id: crypto.randomUUID(),
     isEditing: false,
   });
-  console.log(inputs);
 
   useEffect(() => {
     return () => {
@@ -37,20 +36,19 @@ function Form(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // if (information.every((game) => !game.isEditing)) {
-    setInformation((prev) => [...prev, inputs]);
-    // } else {
-    //   setInformation((prev) =>
-    //     prev.map((game) => {
-    //       if (game.isEditing) {
-    //         return { ...inputs };
-    //       } else return game;
-    //     })
-    //   );
-    // }
-
-    // closeOverlay();
-    setShowForm(false);
+    if (variation === "create") {
+      setInformation((prev) => [...prev, inputs]);
+      setShowForm(false);
+    } else if (variation === "edit") {
+      setInformation((prev) =>
+        prev.map((game) => {
+          if (game.id === id) {
+            return { ...inputs };
+          } else return game;
+        })
+      );
+      setShowEditForm(false);
+    }
   }
 
   return (
@@ -96,15 +94,6 @@ function Form(props) {
           <option value="Hard">Hard</option>
         </select>
 
-        {/* <Input
-          optionsValues={["", "Easy", "Medium", "Hard"]}
-          options={["Choose complexity...", "Easy", "Medium", "Hard"]}
-          name="complexity"
-          value={inputs.complexity}
-          handleOnChange={handleInputChange}
-          required={true}
-        /> */}
-
         <label>Genre:</label>
         <Input
           name="genre"
@@ -143,14 +132,6 @@ function Form(props) {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        {/* <Input
-          optionsValues={["0", "1", "2", "3", "4", "5"]}
-          options={["Leave rating...", "1", "2", "3", "4", "5"]}
-          name="rating"
-          value={inputs.rating}
-          handleOnChange={handleInputChange}
-          required={false}
-        /> */}
       </div>
 
       <AppBtn variation="primary-btn">

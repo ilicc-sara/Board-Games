@@ -26,21 +26,6 @@ function App() {
     );
   }
 
-  // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  // forma treba biti komponenta koja drzi stejt inputa
-  // ti inputi mogu biti prazni a mogu biti i prepopunjeni vrednostima iz igrice
-  // znam da je is editign true ako sam primila inpute iz igrice kao prop
-  // formu komponentu treba iskoristiti na dva mesta
-  // prvo mesto gde treba iskoristiti je u app jsx
-  // tu u app.jsx ne prosledjujem igricu kao prop jer je to tu create
-  // kada tu otvorim formu to je create
-  //
-  // kada radim map preko igrica vratim koponentu single game ili game card
-  // unutar te komponente napravim isEditing true ili false stejt
-  // na klik dugmeta edit stavljam isEdit true
-  // ta komponenta treba da prikazuje i formu ako je is editing true i da prosledi propove iz same sebe
-  // posto je forma sada dobila igricu kao prop ona zna da je editing
   return (
     <div ref={contentRef}>
       {showForm && (
@@ -68,61 +53,16 @@ function App() {
 
       <main className="game-items-container">
         {information.map((game) => (
-          // <article className="game-item">
-          //   <div className="title-rating-cont">
-          //     <h3 className="game-name"> {game.name} </h3>
-          //     <DisplayRatingStars
-          //       displayRating={displayRating}
-          //       rating={game.rating}
-          //       handleClick={rate}
-          //       id={game.id}
-          //     />
-          //   </div>
-          //   <p className="game-description"> {game.description} </p>
-
-          //   <GameDetails
-          //     players={game.players}
-          //     genre={game.genre}
-          //     playTime={game.playTime}
-          //     complexity={game.complexity}
-          //   />
-
-          //   <div className="link-and-edit">
-          //     <AppBtn variation="link-btn" href={game.link}>
-          //       Learn More
-          //     </AppBtn>
-          //     <AppBtn variation="edit-btn" handleClick={() => setEditing(game)}>
-          //       Edit
-          //     </AppBtn>
-          //   </div>
-          // </article>
-          <>
-            <GameItem
-              game={game}
-              rate={rate}
-              showForm={showForm}
-              setShowForm={setShowForm}
-              // ////////////////////
-              information={information}
-              setInformation={setInformation}
-
-              // setEditing={setEditing}
-            />
-          </>
+          <GameItem
+            game={game}
+            rate={rate}
+            information={information}
+            setInformation={setInformation}
+          />
         ))}
       </main>
     </div>
   );
 }
-// dodati sledece funkcionalnosti
-// dodavanje nove igrice : ✅
-// dodati neko dugme add new game ✅
-// kad se na njega klikne treba se pojaviti overlay i forma po sredini ekrana ✅
-// submit forme pravi novu igricu ✅
-// edit postojece igrice ✅
-// svako dugme treba imati mali edit btn ✅
-// kad se klikne na edit btn otvori se ista forma kao za dodavanje nove igrice samo je popunjena vrednostima iz igrice ✅
-// znaci potrebna ce biti neka komponenta createEditForm
-// za dugmad edit i create iskoristi app link componentu ✅
 
 export default App;

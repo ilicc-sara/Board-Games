@@ -29,9 +29,10 @@ function GameItem(props) {
           <Form
             variation="edit"
             game={game}
+            id={game.id}
             information={information}
             setInformation={setInformation}
-            setShowEditForm
+            setShowEditForm={setShowEditForm}
           />
         </div>
       )}
