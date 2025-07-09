@@ -60,12 +60,7 @@ h1 {
   gap: 1.4rem;
   background-color: rgb(246, 246, 255);
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
-  /* height: 248px; */
   min-height: 248px;
-}
-
-.game-item:hover {
-  opacity: 1;
 }
 
 .title-rating-cont {
@@ -110,10 +105,8 @@ h1 {
   width: 165px;
 }
 
-/* Game details icons */
 .icon-png {
   width: 35px;
-  /* height: 35px; */
 }
 
 .btn {
@@ -295,8 +288,4 @@ form {
   justify-content: center;
   row-gap: 10px;
   column-gap: 10px;
-}
-
-.hidden {
-  display: none;
 }

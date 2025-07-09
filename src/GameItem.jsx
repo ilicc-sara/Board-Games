@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DisplayRatingStars from "./DisplayRatingStars";
 import GameDetails from "./GameDetails";
 import AppBtn from "./AppBtn";
