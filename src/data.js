@@ -10,7 +10,6 @@ export const info = [
     link: "https://youtu.be/6OF32Eq5DZo?si=1RSHugUTXe54Zo8t",
     rating: 4,
     id: crypto.randomUUID(),
-    isEditing: false,
   },
   {
     name: "Dixit",
@@ -23,7 +22,6 @@ export const info = [
     link: "https://youtu.be/YmPsn05nmh8?si=o8_9a_lXg3OEeSfc",
     rating: 0,
     id: crypto.randomUUID(),
-    isEditing: false,
   },
   {
     name: "Azul",
@@ -36,7 +34,6 @@ export const info = [
     link: "https://youtu.be/dXuucWGrFMQ?si=j7Mh7rpthXaOqC9f",
     rating: 3,
     id: crypto.randomUUID(),
-    isEditing: false,
   },
   {
     name: "Ticket to Ride",
@@ -49,7 +46,6 @@ export const info = [
     link: "https://youtu.be/UCZ0uQxvqv8?si=CQkRok_URZkvRyme",
     rating: 1,
     id: crypto.randomUUID(),
-    isEditing: false,
   },
   {
     name: "Codenames",
@@ -62,6 +58,5 @@ export const info = [
     link: "https://youtu.be/WErB95Brgbs?si=DO6TOXdLniDAJ6tN",
     rating: 2,
     id: crypto.randomUUID(),
-    isEditing: false,
   },
 ];

@@ -16,7 +16,6 @@ function Form(props) {
     link: "",
     rating: "",
     id: crypto.randomUUID(),
-    isEditing: false,
   });
 
   useEffect(() => {

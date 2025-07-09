@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import { info } from "./data";
 import GameItem from "./GameItem";
@@ -29,7 +29,7 @@ function App() {
   return (
     <div ref={contentRef}>
       {showForm && (
-        <div className="overlay">
+        <div className="overlay" onClick={() => setShowForm(false)}>
           <Form
             variation="create"
             information={information}

@@ -8,8 +8,6 @@ function GameItem(props) {
   const { game, rate, information, setInformation } = props;
   const [showEditForm, setShowEditForm] = useState(false);
 
-  // console.log(game.isEditing);
-
   function displayRating(ratingNumber) {
     const maxRateNumber = 5;
     const number = Number(ratingNumber);
@@ -25,7 +23,7 @@ function GameItem(props) {
   return (
     <article className="game-item">
       {showEditForm && (
-        <div className="overlay">
+        <div className="overlay" onClick={() => setShowEditForm(false)}>
           <Form
             variation="edit"
             game={game}
