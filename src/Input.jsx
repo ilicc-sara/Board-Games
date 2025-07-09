@@ -1,9 +1,10 @@
 import React from "react";
 
 function Input(props) {
-  const { name, value, handleOnChange, placeholder, textarea } = props;
+  // prettier-ignore
+  const { name, value, handleOnChange, placeholder, variation, options, values, required } = props;
 
-  if (!textarea) {
+  if (variation === "input") {
     return (
       <input
         type="text"
@@ -14,7 +15,8 @@ function Input(props) {
         placeholder={placeholder}
       />
     );
-  } else {
+  }
+  if (variation === "textarea") {
     return (
       <textarea
         type="text"
@@ -24,6 +26,22 @@ function Input(props) {
         required
         placeholder={placeholder}
       />
+    );
+  }
+
+  if (variation === "select") {
+    return (
+      <select
+        type="text"
+        name={name}
+        value={value}
+        onChange={(e) => handleOnChange(e)}
+        required={required}
+      >
+        {options.map((option, index) => (
+          <option value={`${values[index]}`}>{option}</option>
+        ))}
+      </select>
     );
   }
 }

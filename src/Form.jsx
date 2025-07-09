@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Input from "./Input";
-import Select from "./Select";
 import AppBtn from "./AppBtn";
 
 function Form(props) {
@@ -59,6 +58,7 @@ function Form(props) {
       <div className="inputs-and-labels">
         <label>Game Name:</label>
         <Input
+          variation="input"
           name="name"
           value={inputs.name}
           handleOnChange={handleInputChange}
@@ -67,7 +67,7 @@ function Form(props) {
 
         <label>Description:</label>
         <Input
-          textarea
+          variation="textarea"
           name="description"
           value={inputs.description}
           handleOnChange={handleInputChange}
@@ -76,6 +76,7 @@ function Form(props) {
 
         <label>Players:</label>
         <Input
+          variation="input"
           name="players"
           value={inputs.players}
           handleOnChange={handleInputChange}
@@ -83,7 +84,8 @@ function Form(props) {
         />
 
         <label>Complexity:</label>
-        <Select
+        <Input
+          variation="select"
           name="complexity"
           value={inputs.complexity}
           handleOnChange={handleInputChange}
@@ -94,6 +96,7 @@ function Form(props) {
 
         <label>Genre:</label>
         <Input
+          variation="input"
           name="genre"
           value={inputs.genre}
           handleOnChange={handleInputChange}
@@ -102,6 +105,7 @@ function Form(props) {
 
         <label>Play Time:</label>
         <Input
+          variation="input"
           name="playTime"
           value={inputs.playTime}
           handleOnChange={handleInputChange}
@@ -110,6 +114,7 @@ function Form(props) {
 
         <label>Info Link:</label>
         <Input
+          variation="input"
           name="link"
           value={inputs.link}
           handleOnChange={handleInputChange}
@@ -117,7 +122,8 @@ function Form(props) {
         />
 
         <label>Rating:</label>
-        <Select
+        <Input
+          variation="select"
           name="rating"
           value={inputs.rating}
           handleOnChange={handleInputChange}
