@@ -18,7 +18,7 @@ html {
 
 body {
   /* background-color: rgb(227, 227, 255); */
-  background: linear-gradient(90deg, #f6ebf9 0%, #fffdf2 100%);
+  background: linear-gradient(90deg, #f7dcff 0%, #fff9d8 100%);
   color: var(--text-color);
   font-family: "ABeeZee", monospace;
 }
@@ -275,13 +275,17 @@ form {
   width: fit-content;
   margin: 15vh auto;
   padding: 15px 30px;
-  background: linear-gradient(90deg, #f8deff 0%, #fffadf 100%);
+  background: linear-gradient(90deg, #f4cdff 0%, #fff8d2 100%);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.form-heading {
+  font-size: 20px;
 }
 
 .inputs-and-labels {

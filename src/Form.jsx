@@ -53,7 +53,9 @@ function Form(props) {
 
   return (
     <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-      <h2>{`${!game ? "Add new Game" : "Edit Game"}`}</h2>
+      <h2 className="form-heading">{`${
+        !game ? "Add new Game" : "Edit Game"
+      }`}</h2>
       <div className="inputs-and-labels">
         <label>Game Name:</label>
         <Input
