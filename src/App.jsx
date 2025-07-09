@@ -26,61 +26,6 @@ function App() {
     );
   }
 
-  // function closeOverlay() {
-  //   setInformation((prev) =>
-  //     prev.map((game) => {
-  //       return { ...game, isEditing: false };
-  //     })
-  //   );
-  //   setInputs({
-  //     name: "",
-  //     description: "",
-  //     players: "",
-  //     complexity: "",
-  //     genre: "",
-  //     playTime: "",
-  //     link: "",
-  //     rating: "",
-  //     id: crypto.randomUUID(),
-  //     isEditing: false,
-  //   });
-  //   setShowForm(false);
-  // }
-
-  // const isNotEditing = information.every((game) => !game.isEditing);
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   if (information.every((game) => !game.isEditing)) {
-  //     setInformation((prev) => [...prev, inputs]);
-  //   } else {
-  //     setInformation((prev) =>
-  //       prev.map((game) => {
-  //         if (game.isEditing) {
-  //           return { ...inputs };
-  //         } else return game;
-  //       })
-  //     );
-  //   }
-
-  //   closeOverlay();
-  // }
-
-  // function setEditing(game) {
-  //   setShowForm(true);
-
-  //   setInputs({ ...game });
-
-  //   setInformation((prev) =>
-  //     prev.map((gameItem) => {
-  //       if (game.id === gameItem.id) {
-  //         return { ...gameItem, isEditing: true };
-  //       } else return { ...gameItem, isEditing: false };
-  //     })
-  //   );
-  // }
-
   // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // forma treba biti komponenta koja drzi stejt inputa
@@ -99,18 +44,9 @@ function App() {
   return (
     <div ref={contentRef}>
       {showForm && (
-        <div
-          className="overlay"
-          onClick={
-            () => setShowForm(true)
-            // closeOverlay()
-          }
-        >
+        <div className="overlay">
           <Form
-            // handleSubmit={handleSubmit}
-            // isNotEditing={isNotEditing}
-            // inputs={inputs}
-            // handleInputChange={handleInputChange}
+            variation="create"
             information={information}
             setInformation={setInformation}
             setShowForm={setShowForm}
@@ -160,11 +96,19 @@ function App() {
           //     </AppBtn>
           //   </div>
           // </article>
-          <GameItem
-            game={game}
-            rate={rate}
-            // setEditing={setEditing}
-          />
+          <>
+            <GameItem
+              game={game}
+              rate={rate}
+              showForm={showForm}
+              setShowForm={setShowForm}
+              // ////////////////////
+              information={information}
+              setInformation={setInformation}
+
+              // setEditing={setEditing}
+            />
+          </>
         ))}
       </main>
     </div>

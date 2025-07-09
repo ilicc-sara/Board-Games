@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import DisplayRatingStars from "./DisplayRatingStars";
 import GameDetails from "./GameDetails";
 import AppBtn from "./AppBtn";
+import Form from "./Form";
 
 function GameItem(props) {
-  const { game, rate, setEditing } = props;
+  const { game, rate, information, setInformation } = props;
+  const [showEditForm, setShowEditForm] = useState(false);
 
   // console.log(game.isEditing);
 
@@ -22,6 +24,17 @@ function GameItem(props) {
 
   return (
     <article className="game-item">
+      {showEditForm && (
+        <div className="overlay">
+          <Form
+            variation="edit"
+            game={game}
+            information={information}
+            setInformation={setInformation}
+            setShowEditForm
+          />
+        </div>
+      )}
       <div className="title-rating-cont">
         <h3 className="game-name"> {game.name} </h3>
         <DisplayRatingStars
@@ -44,7 +57,12 @@ function GameItem(props) {
         <AppBtn variation="link-btn" href={game.link}>
           Learn More
         </AppBtn>
-        <AppBtn variation="edit-btn" handleClick={() => setEditing(game)}>
+        <AppBtn
+          variation="edit-btn"
+          handleClick={() => {
+            setShowEditForm(true);
+          }}
+        >
           Edit
         </AppBtn>
       </div>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./Input";
 import AppBtn from "./AppBtn";
 
 function Form(props) {
   // const { handleSubmit, isNotEditing, inputs, handleInputChange } = props;
-  const { information, setInformation, setShowForm } = props;
+  const { information, setInformation, setShowForm, game } = props;
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -19,6 +19,14 @@ function Form(props) {
     isEditing: false,
   });
   console.log(inputs);
+
+  useEffect(() => {
+    return () => {
+      if (game) {
+        setInputs(game);
+      }
+    };
+  }, [game]);
 
   function handleInputChange(e) {
     setInputs((prev) => {
@@ -47,9 +55,7 @@ function Form(props) {
 
   return (
     <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-      <h2>
-        {/* {`${isNotEditing ? "Add new Game" : "Edit Game"}`} */} Add new Game
-      </h2>
+      <h2>{`${!game ? "Add new Game" : "Edit Game"}`}</h2>
       <div className="inputs-and-labels">
         <label>Game Name:</label>
         <Input
@@ -148,7 +154,7 @@ function Form(props) {
       </div>
 
       <AppBtn variation="primary-btn">
-        {/* {`${isNotEditing ? "Add Game" : "Edit game"}`} */} Add Game
+        {`${!game ? "Add Game" : "Edit game"}`}
       </AppBtn>
     </form>
   );
