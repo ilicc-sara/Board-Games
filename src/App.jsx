@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import { info } from "./data";
-import GameItem from "./GameItem";
-import AppBtn from "./AppBtn";
-import Form from "./Form";
+import GameItem from "./components/GameItem";
+import AppBtn from "./components/AppBtn";
+import Form from "./components/Form";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 

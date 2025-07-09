@@ -14,7 +14,7 @@ export const info = [
   {
     name: "Dixit",
     description:
-      "A creative storytelling game where players use beautifully illustrated cards to vluff and guess each other's stories",
+      "A creative storytelling game where players use beautifully illustrated cards to vluff and guess each other's stories.",
     players: "3-6",
     complexity: "Easy",
     genre: "Party, Creative",
@@ -26,7 +26,7 @@ export const info = [
   {
     name: "Azul",
     description:
-      "A tile-grafting game where players take turns selecting colorful tiles to complete beautiful patterns",
+      "A tile-grafting game where players take turns selecting colorful tiles to complete beautiful patterns.",
     players: "2-4",
     complexity: "Medium",
     genre: "Abstract, Strategy",
