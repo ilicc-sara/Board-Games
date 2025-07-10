@@ -36,14 +36,14 @@ function GameItem(props) {
     <article className="game-item">
       {showEditForm && (
         <div className="overlay" onClick={() => setShowEditForm(false)}>
-          <Form
+          {/* <Form
             variation="edit"
             game={game}
             id={game.id}
             information={information}
             setInformation={setInformation}
             setShowEditForm={setShowEditForm}
-          />
+          /> */}
         </div>
       )}
       <div className="title-rating-cont">
