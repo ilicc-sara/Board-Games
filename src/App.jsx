@@ -17,8 +17,12 @@ function App() {
   const reactToPrintFn = useReactToPrint({ contentRef });
 
   const form = useForm();
-  const { register, control } = form;
+  const { register, control, handleSubmit } = form;
   const { name, ref, onChange, onBlur } = register("name");
+
+  const onSubmit = (data) => {
+    console.log("Form submitted", data);
+  };
 
   return (
     <div ref={contentRef}>
@@ -39,7 +43,7 @@ function App() {
           >
             Close Overlay
           </AppBtn>
-          <form onClick={(e) => e.stopPropagation()}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className="form-heading">Add new Game</h2>
             <div className="inputs-and-labels">
               <label htmlFor="name">Game Name:</label>
