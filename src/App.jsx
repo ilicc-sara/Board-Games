@@ -22,6 +22,12 @@ function App() {
 
   const onSubmit = (data) => {
     console.log("Form submitted", data);
+    console.log(data);
+
+    setInformation((prev) => [...prev, data]);
+    console.log("information", information);
+
+    setShowForm(false);
   };
 
   return (
