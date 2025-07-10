@@ -2,10 +2,12 @@ import React from "react";
 import AppBtn from "./AppBtn";
 
 function FormUseForm(props) {
-  const { handleSubmit, register } = props;
+  const { handleSubmit, register, variation } = props;
   return (
     <form onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
-      <h2 className="form-heading">Add new Game</h2>
+      <h2 className="form-heading">{`${
+        variation === "create" ? "Add new Game" : "Edit Game"
+      }`}</h2>
       <div className="inputs-and-labels">
         <label htmlFor="name">Game Name:</label>
         <input
@@ -85,7 +87,9 @@ function FormUseForm(props) {
         </select>
       </div>
 
-      <AppBtn variation="primary-btn">Add Game</AppBtn>
+      <AppBtn variation="primary-btn">{`${
+        variation === "edit" ? "Edit Game" : "Add Game"
+      }`}</AppBtn>
     </form>
   );
 }
