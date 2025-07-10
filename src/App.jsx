@@ -17,7 +17,7 @@ function App() {
   const reactToPrintFn = useReactToPrint({ contentRef });
 
   const form = useForm();
-  const { register, control, handleSubmit } = form;
+  const { register, control, handleSubmit, reset } = form;
   const { name, ref, onChange, onBlur } = register("name");
 
   const onSubmit = (data) => {
@@ -28,6 +28,7 @@ function App() {
     console.log("information", information);
 
     setShowForm(false);
+    reset();
   };
 
   return (
