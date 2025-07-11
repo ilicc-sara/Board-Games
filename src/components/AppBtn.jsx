@@ -6,15 +6,15 @@ function AppBtn(props) {
   const baseClassName = "btn";
   let modifierClassName;
 
-  if (variation === "primary-btn") {
+  if (variation === "Primary Button") {
     modifierClassName = "btn-primary";
   }
 
-  if (variation === "link-btn") {
+  if (variation === "Learn More") {
     modifierClassName = "btn-link";
   }
 
-  if (variation === "edit-btn") {
+  if (variation === "Edit Button") {
     modifierClassName = "btn-edit";
   }
 

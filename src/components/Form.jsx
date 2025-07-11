@@ -4,10 +4,7 @@ import AppBtn from "./AppBtn";
 import Select from "./Select";
 
 function Form(props) {
-  // prettier-ignore
   const { game, variation, handleSubmit } = props;
-  // definisati onSubmit da bude fleksibilniji
-  // select input da primi array objekata
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -129,7 +126,7 @@ function Form(props) {
         />
       </div>
 
-      <AppBtn variation="primary-btn">
+      <AppBtn variation="Primary Button">
         {`${!game ? "Add Game" : "Edit game"}`}
       </AppBtn>
     </form>

@@ -56,10 +56,13 @@ function App() {
       <nav>
         <h1>Board Games</h1>
         <div className="primary-buttons">
-          <AppBtn variation="primary-btn" handleClick={() => setShowForm(true)}>
+          <AppBtn
+            variation="Primary Button"
+            handleClick={() => setShowForm(true)}
+          >
             Add New Game
           </AppBtn>
-          <AppBtn variation="primary-btn" handleClick={reactToPrintFn}>
+          <AppBtn variation="Primary Button" handleClick={reactToPrintFn}>
             Save as PDF
           </AppBtn>
         </div>

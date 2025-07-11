@@ -100,11 +100,11 @@ function GameItem(props) {
       />
 
       <div className="link-and-edit">
-        <AppBtn variation="link-btn" href={game.link}>
+        <AppBtn variation="Learn More" href={game.link}>
           Learn More
         </AppBtn>
         <AppBtn
-          variation="edit-btn"
+          variation="Edit Button"
           handleClick={() => {
             setShowEditForm(true);
           }}
