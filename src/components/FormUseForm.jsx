@@ -87,7 +87,7 @@ function FormUseForm(props) {
         </select>
       </div>
 
-      <AppBtn variation="primary-btn">{`${
+      <AppBtn variation="Primary Button">{`${
         variation === "edit" ? "Edit Game" : "Add Game"
       }`}</AppBtn>
     </form>

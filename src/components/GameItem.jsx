@@ -2,10 +2,10 @@ import { useState } from "react";
 import DisplayRatingStars from "./DisplayRatingStars";
 import GameDetails from "./GameDetails";
 import AppBtn from "./AppBtn";
-import Form from "./Form";
+// import Form from "./Form";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-// import FormUseForm from "./FormUseForm";
+import FormUseForm from "./FormUseForm";
 
 function GameItem(props) {
   const { game, setInformation } = props;
@@ -35,50 +35,51 @@ function GameItem(props) {
     );
   }
 
-  function handleSubmit(e, inputs) {
-    e.preventDefault();
+  // FOR FORM COMPONENT
+  // function handleSubmit(e, inputs) {
+  //   e.preventDefault();
 
-    setInformation((prev) =>
-      prev.map((item) => {
-        if (item.id === game.id) {
-          return { ...inputs };
-        } else return item;
-      })
-    );
-    setShowEditForm(false);
-  }
-
-  // const form = useForm({ defaultValues: { ...game } });
-  // const { register, control, handleSubmit, reset } = form;
-  // const { name, ref, onChange, onBlur } = register("name");
-
-  // const onSubmit = (data) => {
   //   setInformation((prev) =>
   //     prev.map((item) => {
   //       if (item.id === game.id) {
-  //         return { ...data };
+  //         return { ...inputs };
   //       } else return item;
   //     })
   //   );
-
   //   setShowEditForm(false);
-  //   reset();
-  // };
+  // }
+
+  // FOR FORM USE FORM COMPONENT
+  const form = useForm({ defaultValues: { ...game } });
+  const { register, control, handleSubmit, reset } = form;
+
+  const onSubmit = (data) => {
+    setInformation((prev) =>
+      prev.map((item) => {
+        if (item.id === game.id) {
+          return { ...data };
+        } else return item;
+      })
+    );
+
+    setShowEditForm(false);
+    reset();
+  };
 
   return (
     <article className="game-item">
       {showEditForm && (
         <div className="overlay" onClick={() => setShowEditForm(false)}>
-          <Form variation="edit" game={game} handleSubmit={handleSubmit} />
+          {/* <Form variation="edit" game={game} handleSubmit={handleSubmit} /> */}
 
-          {/* <FormUseForm
+          <FormUseForm
             handleSubmit={handleSubmit(onSubmit)}
             register={register}
             variation="edit"
           />
           <div onClick={(e) => e.stopPropagation()}>
             <DevTool control={control} />
-          </div> */}
+          </div>
         </div>
       )}
       <div className="title-rating-cont">

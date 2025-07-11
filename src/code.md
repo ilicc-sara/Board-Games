@@ -438,6 +438,7 @@ const number = Number(ratingNumber);
 }
 
 return (
+
 <article className="game-item">
 <div className="title-rating-cont">
 <h3 className="game-name"> {game.name} </h3>
@@ -471,3 +472,5 @@ return (
 }
 
 export default GameItem;
+
+const { name, ref, onChange, onBlur } = register("name");
