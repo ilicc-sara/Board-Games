@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import Input from "./Input";
 import AppBtn from "./AppBtn";
+import Select from "./Select";
 
 function Form(props) {
   // prettier-ignore
-  const { setInformation, setShowForm, game, variation, setShowEditForm, id } = props;
+  const { game, variation, handleSubmit } = props;
+  // definisati onSubmit da bude fleksibilniji
+  // select input da primi array objekata
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -32,26 +35,29 @@ function Form(props) {
     });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
 
-    if (variation === "create") {
-      setInformation((prev) => [...prev, inputs]);
-      setShowForm(false);
-    } else if (variation === "edit") {
-      setInformation((prev) =>
-        prev.map((game) => {
-          if (game.id === id) {
-            return { ...inputs };
-          } else return game;
-        })
-      );
-      setShowEditForm(false);
-    }
-  }
+  //   if (variation === "create") {
+  //     setInformation((prev) => [...prev, inputs]);
+  //     setShowForm(false);
+  //   } else if (variation === "edit") {
+  //     setInformation((prev) =>
+  //       prev.map((game) => {
+  //         if (game.id === id) {
+  //           return { ...inputs };
+  //         } else return game;
+  //       })
+  //     );
+  //     setShowEditForm(false);
+  //   }
+  // }
 
   return (
-    <form onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
+    <form
+      onClick={(e) => e.stopPropagation()}
+      onSubmit={(e) => handleSubmit(e, inputs)}
+    >
       <h2 className="form-heading">{`${
         !game ? "Add new Game" : "Edit Game"
       }`}</h2>
@@ -84,14 +90,17 @@ function Form(props) {
         />
 
         <label>Complexity:</label>
-        <Input
-          variation="select"
+        <Select
           name="complexity"
           value={inputs.complexity}
           handleOnChange={handleInputChange}
           required={true}
-          values={["", "Easy", "Medium", "Hard"]}
-          options={["Choose complexity...", "Easy", "Medium", "Hard"]}
+          options={[
+            { option: "Choose complexity...", value: "" },
+            { option: "Easy", value: "Easy" },
+            { option: "Medium", value: "Medium" },
+            { option: "Hard", value: "Hard" },
+          ]}
         />
 
         <label>Genre:</label>
@@ -122,14 +131,19 @@ function Form(props) {
         />
 
         <label>Rating:</label>
-        <Input
-          variation="select"
+        <Select
           name="rating"
           value={inputs.rating}
           handleOnChange={handleInputChange}
           required={false}
-          values={["0", "1", "2", "3", "4", "5"]}
-          options={["Leave rating...", "1", "2", "3", "4", "5"]}
+          options={[
+            { option: "Leave rating...", value: "0" },
+            { option: "1", value: "1" },
+            { option: "2", value: "2" },
+            { option: "3", value: "3" },
+            { option: "4", value: "4" },
+            { option: "5", value: "5" },
+          ]}
         />
       </div>
 

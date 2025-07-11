@@ -28,22 +28,6 @@ function Input(props) {
       />
     );
   }
-
-  if (variation === "select") {
-    return (
-      <select
-        type="text"
-        name={name}
-        value={value}
-        onChange={(e) => handleOnChange(e)}
-        required={required}
-      >
-        {options.map((option, index) => (
-          <option value={`${values[index]}`}>{option}</option>
-        ))}
-      </select>
-    );
-  }
 }
 
 export default Input;
