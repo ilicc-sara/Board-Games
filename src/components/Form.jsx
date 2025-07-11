@@ -6,25 +6,27 @@ import Select from "./Select";
 function Form(props) {
   const { game, variation, handleSubmit } = props;
 
-  const [inputs, setInputs] = useState({
-    name: "",
-    description: "",
-    players: "",
-    complexity: "",
-    genre: "",
-    playTime: "",
-    link: "",
-    rating: "",
-    id: crypto.randomUUID(),
-  });
+  const [inputs, setInputs] = useState(game);
 
-  useEffect(() => {
-    return () => {
-      if (game) {
-        setInputs(game);
-      }
-    };
-  }, [game]);
+  // const [inputs, setInputs] = useState({
+  //   name: "",
+  //   description: "",
+  //   players: "",
+  //   complexity: "",
+  //   genre: "",
+  //   playTime: "",
+  //   link: "",
+  //   rating: "",
+  //   id: crypto.randomUUID(),
+  // });
+
+  // useEffect(() => {
+  //   return () => {
+  //     if (game) {
+  //       setInputs(game);
+  //     }
+  //   };
+  // }, [game]);
 
   function handleInputChange(e) {
     setInputs((prev) => {
@@ -38,7 +40,8 @@ function Form(props) {
       onSubmit={(e) => handleSubmit(e, inputs)}
     >
       <h2 className="form-heading">{`${
-        !game ? "Add new Game" : "Edit Game"
+        // !game ? "Add new Game" : "Edit Game"
+        variation === "create" ? "Add new Game" : "Edit Game"
       }`}</h2>
       <div className="inputs-and-labels">
         <label>Game Name:</label>
@@ -127,7 +130,8 @@ function Form(props) {
       </div>
 
       <AppBtn variation="Primary Button">
-        {`${!game ? "Add Game" : "Edit game"}`}
+        {/* {`${!game ? "Add Game" : "Edit game"}`} */}
+        {`${variation === "create" ? "Add Game" : "Edit game"}`}
       </AppBtn>
     </form>
   );

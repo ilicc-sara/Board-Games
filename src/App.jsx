@@ -3,7 +3,7 @@ import "./App.css";
 import { info } from "./data";
 import GameItem from "./components/GameItem";
 import AppBtn from "./components/AppBtn";
-// import Form from "./components/Form";
+import Form from "./components/Form";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { useForm } from "react-hook-form";
@@ -18,38 +18,54 @@ function App() {
   const reactToPrintFn = useReactToPrint({ contentRef });
 
   // FOR FORM COMPONENT
-  // function handleSubmit(e, inputs) {
-  //   e.preventDefault();
+  function handleSubmit(e, inputs) {
+    e.preventDefault();
 
-  //   setInformation((prev) => [...prev, inputs]);
-  //   setShowForm(false);
-  // }
+    setInformation((prev) => [...prev, inputs]);
+    setShowForm(false);
+  }
 
   // FOR FORM USE FORM COMPONENT
-  const form = useForm();
-  const { register, control, handleSubmit, reset } = form;
+  // const form = useForm();
+  // const { register, control, handleSubmit, reset } = form;
 
-  const onSubmit = (data) => {
-    setInformation((prev) => [...prev, data]);
+  // const onSubmit = (data) => {
+  //   setInformation((prev) => [...prev, data]);
 
-    setShowForm(false);
-    reset();
-  };
+  //   setShowForm(false);
+  //   reset();
+  // };
 
   return (
     <div ref={contentRef}>
       {showForm && (
         <div className="overlay" onClick={() => setShowForm(false)}>
-          {/* <Form variation="create" handleSubmit={handleSubmit} /> */}
+          {/* FOR FORM COMPONENT */}
+          <Form
+            variation="create"
+            handleSubmit={handleSubmit}
+            game={{
+              name: "",
+              description: "",
+              players: "",
+              complexity: "",
+              genre: "",
+              playTime: "",
+              link: "",
+              rating: "",
+              id: crypto.randomUUID(),
+            }}
+          />
 
-          <FormUseForm
+          {/* FOR FORM USE FORM COMPONENT */}
+          {/* <FormUseForm
             handleSubmit={handleSubmit(onSubmit)}
             register={register}
             variation="create"
           />
           <div onClick={(e) => e.stopPropagation()}>
             <DevTool control={control} />
-          </div>
+          </div> */}
         </div>
       )}
 
