@@ -1,8 +1,7 @@
 import React from "react";
 
 function Input(props) {
-  // prettier-ignore
-  const { name, value, handleOnChange, placeholder, variation, options, values, required } = props;
+  const { name, value, handleOnChange, placeholder, variation } = props;
 
   if (variation === "input") {
     return (

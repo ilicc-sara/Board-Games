@@ -35,24 +35,6 @@ function Form(props) {
     });
   }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   if (variation === "create") {
-  //     setInformation((prev) => [...prev, inputs]);
-  //     setShowForm(false);
-  //   } else if (variation === "edit") {
-  //     setInformation((prev) =>
-  //       prev.map((game) => {
-  //         if (game.id === id) {
-  //           return { ...inputs };
-  //         } else return game;
-  //       })
-  //     );
-  //     setShowEditForm(false);
-  //   }
-  // }
-
   return (
     <form
       onClick={(e) => e.stopPropagation()}
