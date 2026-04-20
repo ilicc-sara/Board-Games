@@ -18,30 +18,30 @@ function App() {
   const reactToPrintFn = useReactToPrint({ contentRef });
 
   // FOR FORM COMPONENT
-  // function handleSubmit(e, inputs) {
-  //   e.preventDefault();
+  function handleSubmit(e, inputs) {
+    e.preventDefault();
 
-  //   setInformation((prev) => [...prev, inputs]);
-  //   setShowForm(false);
-  // }
+    setInformation((prev) => [...prev, inputs]);
+    setShowForm(false);
+  }
 
   // FOR FORM USE FORM COMPONENT
-  const form = useForm();
-  const { register, control, handleSubmit, reset } = form;
+  // const form = useForm();
+  // const { register, control, handleSubmit, reset } = form;
 
-  const onSubmit = (data) => {
-    setInformation((prev) => [...prev, data]);
+  // const onSubmit = (data) => {
+  //   setInformation((prev) => [...prev, data]);
 
-    setShowForm(false);
-    reset();
-  };
+  //   setShowForm(false);
+  //   reset();
+  // };
 
   return (
     <div ref={contentRef}>
       {showForm && (
         <div className="overlay" onClick={() => setShowForm(false)}>
           {/* FOR FORM COMPONENT */}
-          {/* <Form
+          <Form
             variation="create"
             handleSubmit={handleSubmit}
             game={{
@@ -55,14 +55,14 @@ function App() {
               rating: "",
               id: crypto.randomUUID(),
             }}
-          /> */}
+          />
 
           {/* FOR FORM USE FORM COMPONENT */}
-          <FormUseForm
+          {/* <FormUseForm
             handleSubmit={handleSubmit(onSubmit)}
             register={register}
             variation="create"
-          />
+          /> */}
           <div onClick={(e) => e.stopPropagation()}>
             <DevTool control={control} />
           </div>
